@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+
+Author - Eoin McDonald x18103880 NCI Computing
+OOP Repeat CA 
+
  */
 package cliniggui;
 
@@ -12,6 +13,7 @@ import java.awt.print.PrinterException;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import javax.swing.*;
+import java.text.*;
 import java.util.*;
 /**
  *
@@ -174,6 +176,7 @@ public class ViewPrintAppointment extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -210,6 +213,7 @@ public class ViewPrintAppointment extends javax.swing.JFrame {
         DatePicker.setEditable(false);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setEnabled(false);
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cliniggui/job.png"))); // NOI18N
@@ -380,6 +384,11 @@ public class ViewPrintAppointment extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
+        /*
+        printing out the contents of the textfields to the formatted jTextArea along 
+        with a date format. 
+        */
+        
         
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
        
@@ -388,17 +397,17 @@ public class ViewPrintAppointment extends javax.swing.JFrame {
         jTextArea1.append("\t \t Patient Record \n \n "+ 
                 
                 
-                "PPS Number: \t \t \t "+ jTextField7.getText()+
+                "PPS Number: \t\t "+ jTextField7.getText()+
                 "\n===========================================================\n"+
-                "First Name \t\t\t"+ jTextField1.getText()+ "\n\n"+
-                "Surname \t\t\t"+ jTextField2.getText()+ "\n\n"+
-                "Address \t\t\t"+ jTextField3.getText()+ "\n\n"+
-                "Town \t\t\t"+ jTextField4.getText()+ "\n\n"+
-                "County \t\t\t"+ jTextField5.getText()+ "\n\n"+
-                "EirCode \t\t\t"+ jTextField6.getText()+ "\n\n"+
-                "Phone \t\t\t"+ jTextField8.getText()+ "\n\n"+
-                "Appointment Date \t\t"+ sdf.format(DatePicker.getDate())+ "\n\n"+
-                "Doctor \t\t\t"+ jComboBox2.getSelectedItem()+ "\n\n"+
+                "First Name \t\t"+ jTextField1.getText()+ "\n\n"+
+                "Surname \t\t"+ jTextField2.getText()+ "\n\n"+
+                "Address \t\t"+ jTextField3.getText()+ "\n\n"+
+                "Town \t\t"+ jTextField4.getText()+ "\n\n"+
+                "County \t\t"+ jTextField5.getText()+ "\n\n"+
+                "EirCode \t\t"+ jTextField6.getText()+ "\n\n"+
+                "Phone \t\t"+ jTextField8.getText()+ "\n\n"+
+                "Appointment Date \t"+ sdf.format(DatePicker.getDate())+ "\n\n"+
+                "Doctor \t\t"+ jComboBox2.getSelectedItem()+ "\n\n"+
                 "\n===========================================================\n"
                 );
         
@@ -416,6 +425,12 @@ public class ViewPrintAppointment extends javax.swing.JFrame {
         jTextArea1.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    /*
+    This button is for the printing function which user may print the contents of the jTextArea to a pdf or
+    send to a printer.
+    
+    */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         try{

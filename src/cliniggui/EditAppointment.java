@@ -45,8 +45,9 @@ public class EditAppointment extends javax.swing.JFrame {
             doctorsArray[i] = doctors.get(i).getDoctorFName()+ " " + doctors.get(i).getDoctorSName()+ " " + "(" + doctors.get(i).getDoctorType() + ")" ;
             
         }
-        
+       
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(doctorsArray));
+        
         
         /*
         Like in the AddAppointment class we want to get the doctors arraylist contents in the Combobox but also we want 
@@ -64,6 +65,8 @@ public class EditAppointment extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(appointmentsArray));
         
         jComboBox1.setSelectedIndex(0);
+        
+        
     }
     
     //writing to the file
@@ -115,6 +118,7 @@ public class EditAppointment extends javax.swing.JFrame {
                 try{
                     
                     doctors.add((Doctor)inputFile.readObject());
+                    
                     
                 }
                 catch(EOFException e){

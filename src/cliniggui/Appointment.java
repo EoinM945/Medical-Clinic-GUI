@@ -136,29 +136,4 @@ public class Appointment implements Serializable {
     
    }
 
-// Abstract class
-abstract class Patient {
-  // Abstract method (does not have a body)
-  public abstract void patientAppointment();
-  // Regular method
-  public void Register() {
-    System.out.println("     ");
-  }
-}
 
-// Subclass (inherit from Patient)
-
-class clinic extends Patient {
-  public void patientAppointment() {
-    
-    System.out.println("Register");
-  }
-}
-
-class MyMainClass {
-  public static void main(String[] args) {
-    clinic myClinic = new clinic(); // Create a Clinic object
-    myClinic.patientAppointment();
-    myClinic.Register();
-  }
-}

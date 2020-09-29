@@ -44,6 +44,10 @@ public class Login extends javax.swing.JFrame {
             
             
         }
+        else if(jTextField1.getText().isEmpty() || jPasswordField1.getText().isEmpty()){
+             
+             JOptionPane.showMessageDialog(null, "Please Enter All Login Details!!!");
+         }
         else{
             
             JOptionPane.showMessageDialog(null, "Incorrect Login!!");
@@ -89,6 +93,11 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Password:");
 
         jTextField1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
 
         jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -206,6 +215,15 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "User Name: admin \n\n Password: admin ");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            
+           login();
+            
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments

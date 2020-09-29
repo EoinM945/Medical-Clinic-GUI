@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+
+Author - Eoin McDonald x18103880 NCI Computing
+OOP Repeat CA 
+
  */
 package cliniggui;
 
@@ -55,6 +56,7 @@ public class Menu extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -110,6 +112,15 @@ public class Menu extends javax.swing.JFrame {
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cliniggui/folder.png"))); // NOI18N
+        jButton6.setText("Create/Print Receipt");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -173,7 +184,9 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -191,7 +204,9 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(20, 20, 20))
         );
@@ -205,7 +220,10 @@ public class Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null," OOP Repeat CA - Eoin McDonald x18103880 \n \n \n "
                 + "This is a simple system for a health clinic to allow an administrator \n "
                 + "to log appointments and edit them. \n "
-                + "The user may also add a doctor and define their area of expertise \n \n " 
+                + "The user may add a doctor and define their area of expertise \n \n "
+                + "Another feature is printing the user details and sending them to a printer \n \n  "
+                + "Or printing out an appointment receipt with amount paid and date"
+                + "\n \n "
                 + "NCI Computing 2020");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -245,13 +263,19 @@ public class Menu extends javax.swing.JFrame {
         new ViewPrintAppointment().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        new Receipt().setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     
     
     void showDate(){
     
         Date d = new Date();
+        // Day + Date + time logged in at. 
         SimpleDateFormat s = new SimpleDateFormat("EEEE"+" dd/MM/yyyy "+ " hh:mm ");
-        jLabel2.setText(s.format(d));
+        jLabel2.setText("LOGGED IN: "+s.format(d));
     
 }
    
@@ -298,6 +322,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
